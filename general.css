@@ -1,0 +1,22 @@
+.page {
+    min-width: 600px;
+    height: 100%;
+    margin: 0 auto;
+    border: 1px solid grey;
+}
+
+.header {
+    font-family: Georgia;
+    color: rgb(255, 196, 35);
+    text-align: center;
+}
+
+.text-area {
+    display: block;
+    min-width: 600px;
+    margin: 0 auto;
+}
+
+.text-area:focus {
+    outline: none;
+}
