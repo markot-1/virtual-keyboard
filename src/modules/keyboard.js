@@ -50,5 +50,3 @@ export function keyUpEvent(event) {
     }
   }
 }
-
-// if (buttons[i].classList.contains('button_service')) {}
