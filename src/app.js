@@ -7,7 +7,7 @@ const PAGE = createElement('div', 'page');
 const HEADER = createElement('h1', 'header');
 HEADER.innerText = 'RSS Виртуальная клавиатура';
 const TEXT_BLOCK = createElement('p', 'text-block');
-TEXT_BLOCK.innerText = 'Клавиатура создана в операционной системе Windows';
+TEXT_BLOCK.innerText = 'Клавиатура создана в операционной системе Windows\n Для переключения языка используйте комбинацию: левые ctrl и alt';
 
 const FORM = document.createElement('form');
 FORM.append(TEXT_AREA);

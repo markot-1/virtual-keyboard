@@ -18,11 +18,27 @@ export function keyboardFill() {
     elem.innerText = json[i].key;
     for (let j = 0; j < json[i].class.length; j += 1) {
       elem.classList.add(json[i].class[j]);
+      elem.classList.add('eng_keyboard');
     }
     elem.id = json[i].code;
     keyboardWrapper.append(elem);
   }
   return keyboardWrapper;
+}
+
+function changeLang() {
+  for (let i = 0; i < json.length; i += 1) {
+    const elem = document.getElementById(json[i].code);
+    if (elem.classList.contains('eng_keyboard')) {
+      elem.classList.remove('eng_keyboard');
+      elem.classList.add('rus_keyboard');
+      elem.innerHTML = json[i].keyRu;
+    } else if (elem.classList.contains('rus_keyboard')) {
+      elem.classList.remove('rus_keyboard');
+      elem.classList.add('eng_keyboard');
+      elem.innerHTML = json[i].key;
+    }
+  }
 }
 
 const buttons = document.getElementsByTagName('button');
@@ -35,10 +51,36 @@ export function keyDownEvent(event) {
       buttons[i].classList.add('active');
     }
   }
-  if (button.class.indexOf('button_service') === -1 || button.code === 'Backspace') {
+  if (button.class.indexOf('button_service') === -1) {
     TEXT_AREA.innerHTML += button.key;
-    if (event.code === 'Backspace') {
-      TEXT_AREA.innerHTML = TEXT_AREA.innerHTML.slice(0, -10);
+  } else if (button.class.includes('button_service')) {
+    switch (event.code) {
+      case 'Backspace':
+        TEXT_AREA.innerHTML = TEXT_AREA.innerHTML.slice(0, -1);
+        break;
+      case 'Enter':
+        TEXT_AREA.innerHTML += '\n';
+        break;
+      case 'Tab':
+        event.preventDefault();
+        TEXT_AREA.innerHTML += '    ';
+        break;
+      case 'ControlLeft':
+        if (event.code === 'ControlLeft' && event.altKey) {
+          changeLang();
+        }
+        break;
+      case 'AltLeft':
+        event.preventDefault();
+        if (event.code === 'ControlLeft' && event.altKey) {
+          changeLang();
+        }
+        break;
+      case 'AltRight':
+        event.preventDefault();
+        break;
+      default:
+        break;
     }
   }
 }

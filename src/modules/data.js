@@ -56,7 +56,7 @@ export const json = [{
 }, {
   code: 'Backslash', key: '\\', keyRu: '\\', class: ['button'],
 }, {
-  code: 'Delete', key: 'Del', keyRu: 'Del', class: ['button'],
+  code: 'Delete', key: 'Del', keyRu: 'Del', class: ['button', 'button_service'],
 }, {
   code: 'CapsLock', key: 'CapsLock', keyRu: 'CapsLock', class: ['button', 'button_service'],
 }, {
