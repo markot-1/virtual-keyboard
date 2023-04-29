@@ -52,7 +52,7 @@ export function keyDownEvent(event) {
     }
   }
   if (button.class.indexOf('button_service') === -1) {
-    TEXT_AREA.innerHTML += button.key;
+    TEXT_AREA.innerHTML += event.key;
   } else if (button.class.includes('button_service')) {
     switch (event.code) {
       case 'Backspace':
@@ -65,14 +65,14 @@ export function keyDownEvent(event) {
         event.preventDefault();
         TEXT_AREA.innerHTML += '    ';
         break;
-      case 'ControlLeft':
-        if (event.code === 'ControlLeft' && event.altKey) {
+      case 'ShiftLeft':
+        if (event.shiftKey && event.altKey) {
           changeLang();
         }
         break;
       case 'AltLeft':
         event.preventDefault();
-        if (event.code === 'ControlLeft' && event.altKey) {
+        if (event.shiftKey && event.altKey) {
           changeLang();
         }
         break;

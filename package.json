@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack --mode development",
+    "dev": "webpack --mode --watch development",
     "build": "webpack --mode production"
   },
   "repository": {
