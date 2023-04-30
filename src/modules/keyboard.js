@@ -52,7 +52,11 @@ export function keyDownEvent(event) {
     }
   }
   if (button.class.indexOf('button_service') === -1) {
-    TEXT_AREA.innerHTML += event.key;
+    if (document.querySelector('button').classList.contains('eng_keyboard')) {
+      TEXT_AREA.innerHTML += button.key;
+    } else if (document.querySelector('button').classList.contains('rus_keyboard')) {
+      TEXT_AREA.innerHTML += button.keyRu;
+    }
   } else if (button.class.includes('button_service')) {
     switch (event.code) {
       case 'Backspace':
@@ -65,14 +69,14 @@ export function keyDownEvent(event) {
         event.preventDefault();
         TEXT_AREA.innerHTML += '    ';
         break;
-      case 'ShiftLeft':
-        if (event.shiftKey && event.altKey) {
+      case 'ControlLeft':
+        if (event.ctrlKey && event.altKey) {
           changeLang();
         }
         break;
       case 'AltLeft':
         event.preventDefault();
-        if (event.shiftKey && event.altKey) {
+        if (event.ctrlKey && event.altKey) {
           changeLang();
         }
         break;
