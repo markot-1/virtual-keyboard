@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack --mode --watch development",
-    "build": "webpack --mode production",
+    "dev": "npx webpack --mode --watch development",
+    "build": "npx webpack --mode production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/markot-1/virtual-keyboard/issues"
   },
-  "homepage": "https://markot-1.github.io/virtual-keyboard/dist",
+  "homepage": "https://markot-1.github.io/virtual-keyboard",
   "dependencies": {
     "eslint-config-airbnb-base": "^15.0.0"
   },
